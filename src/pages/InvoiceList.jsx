@@ -70,10 +70,10 @@ const InvoiceList = () => {
   };
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <Container className="p-5">
+      <Container className="p-4 p-xl-5 my-3 my-xl-4">
         <Card className="p-4 p-xl-5 my-3 my-xl-4">
           <div className="d-flex justify-content-end align-items-start mb-3">
-            <InputGroup className="w-25 d-flex flex-column me-3">
+            <InputGroup className="w-auto d-flex flex-column me-3">
               <div>
                 <Form.Control
                   type="text"
@@ -94,21 +94,21 @@ const InvoiceList = () => {
             </InputGroup>
             <Button size="md" variant="primary" onClick={handleCopyInvoice}>
               <BiCopy className="me-2" />
-              Copy Invoice
+              Copy
             </Button>
           </div>
 
           <Table striped hover>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Invoice Number</th>
-                <th>Date of Issue</th>
-                <th>Due Date</th>
-                <th>Bill To</th>
-                <th>Bill From</th>
-                <th>Total</th>
-                <th>Actions</th>
+                <th className="d-sm-table-cell">#</th>
+                <th className="d-sm-table-cell">Invoice Number</th>
+                <th className="d-none d-sm-table-cell">Date of Issue</th>
+                <th className="d-none d-sm-table-cell">Due Date</th>
+                <th className="d-sm-table-cell">Bill To</th>
+                <th className="d-none d-sm-table-cell">Bill From</th>
+                <th className="d-none d-sm-table-cell">Total</th>
+                <th className="d-none d-sm-table-cell">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -121,13 +121,13 @@ const InvoiceList = () => {
               ) : (
                 invoices.map((invoice, index) => (
                   <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{invoice.invoiceNumber}</td>
-                    <td>{invoice.dateOfIssue}</td>
-                    <td>{invoice.dueDate}</td>
-                    <td>{invoice.billTo}</td>
-                    <td>{invoice.billFrom}</td>
-                    <td>
+                    <td className="d-sm-table-cell">{index + 1}</td>
+                    <td className="d-sm-table-cell">{invoice.invoiceNumber}</td>
+                    <td className="d-none d-sm-table-cell">{invoice.dateOfIssue}</td>
+                    <td className="d-none d-sm-table-cell">{invoice.dueDate}</td>
+                    <td className="d-sm-table-cell">{invoice.billTo}</td>
+                    <td className="d-none d-sm-table-cell">{invoice.billFrom}</td>
+                    <td className="d-none d-sm-table-cell">
                       {invoice.currency}
                       {invoice.total}
                     </td>

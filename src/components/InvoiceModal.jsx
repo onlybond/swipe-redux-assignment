@@ -144,8 +144,8 @@ const InvoiceModal = (props) => {
           </tbody>
         </Table>
       </div>
-      <Row className="p-xl-4 p-md-3">
-        <Col lg={6}>
+      <Row className="p-xl-4 p-sm-3 p-2  gap-2 ">
+        <Col lg={6} sm={12}>
           <Button
             variant="outline-danger me-2"
             className="px-3 w-100"

@@ -15,7 +15,7 @@ function App() {
             as={Link}
             to="/"
             style={{ color: "#764abc" }}
-            className="d-flex align-items-center gap-1"
+            className="d-flex align-items-center justify-content-center justify-content-md-start  w-100 gap-1"
           >
             <SiRedux className="me-2" style={{ fontSize: "2rem" }} />
             x
