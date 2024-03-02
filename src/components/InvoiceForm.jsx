@@ -48,7 +48,6 @@ const InvoiceForm = ({ edit, copy }) => {
           items: [],
         }
   );
-  console.log(state);
   const [errors, setErrors] = useState({});
   useEffect(() => {
     handleCalculateTotal();
@@ -101,7 +100,7 @@ const InvoiceForm = ({ edit, copy }) => {
       newErrors.dueDate = "valid";
     }
     setErrors(newErrors);
-    return Object.values(newErrors).every((val) => val === "valid");
+    // return Object.values(newErrors).every((val) => val === "valid");
   };
   const handleRowDel = (items) => {
     setState((prevState) => {
@@ -111,7 +110,9 @@ const InvoiceForm = ({ edit, copy }) => {
       return { ...prevState, items: afterDelete };
     });
   };
-
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
   const handleCalculateTotal = () => {
     const { items, taxRate, discountRate } = state;
     let subTotal = 0;
@@ -157,7 +158,6 @@ const InvoiceForm = ({ edit, copy }) => {
       setErrors({ ...errors, [name]: "This field is required" });
     }
     if (name === "dueDate") {
-      console.log(name);
       setState((prevState) => ({
         ...prevState,
         [name]: value.split("-").reverse().join("-"),
@@ -174,7 +174,7 @@ const InvoiceForm = ({ edit, copy }) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (!form.checkValidity() || !validateForm()) {
+    if (!form.checkValidity()) {
       e.stopPropagation();
       setValidated(true);
       return;
