@@ -100,7 +100,7 @@ const InvoiceForm = ({ edit, copy }) => {
       newErrors.dueDate = "valid";
     }
     setErrors(newErrors);
-    // return Object.values(newErrors).every((val) => val === "valid");
+    return Object.values(newErrors).every((val) => val === "valid");
   };
   const handleRowDel = (items) => {
     setState((prevState) => {

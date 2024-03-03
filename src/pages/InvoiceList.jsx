@@ -7,12 +7,12 @@ import {
   Form,
   InputGroup,
 } from "react-bootstrap";
-import { BiCopy, BiEdit, BiTrash } from "react-icons/bi";
+import { BiCopy, BiEdit, BiPlusCircle, BiTrash } from "react-icons/bi";
 import { IoMdEye } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import InvoiceModal from "../components/InvoiceModal";
 import { removeInvoice } from "../app/features/invoiceSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const InvoiceList = () => {
@@ -115,7 +115,14 @@ const InvoiceList = () => {
               {isEmpty ? (
                 <tr>
                   <td colSpan="8" className="text-center">
-                    No invoices
+                    <div className="mb-2">
+                    No invoices found
+                    </div>
+                    <Link to="/create">
+                      <Button>
+                      <BiPlusCircle className="me-2"/>
+                      create one</Button>
+                    </Link>
                   </td>
                 </tr>
               ) : (
@@ -123,10 +130,16 @@ const InvoiceList = () => {
                   <tr key={index}>
                     <td className="d-sm-table-cell">{index + 1}</td>
                     <td className="d-sm-table-cell">{invoice.invoiceNumber}</td>
-                    <td className="d-none d-sm-table-cell">{invoice.dateOfIssue}</td>
-                    <td className="d-none d-sm-table-cell">{invoice.dueDate}</td>
+                    <td className="d-none d-sm-table-cell">
+                      {invoice.dateOfIssue}
+                    </td>
+                    <td className="d-none d-sm-table-cell">
+                      {invoice.dueDate}
+                    </td>
                     <td className="d-sm-table-cell">{invoice.billTo}</td>
-                    <td className="d-none d-sm-table-cell">{invoice.billFrom}</td>
+                    <td className="d-none d-sm-table-cell">
+                      {invoice.billFrom}
+                    </td>
                     <td className="d-none d-sm-table-cell">
                       {invoice.currency}
                       {invoice.total}

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { Button, Col, Modal, ModalHeader, Row, Table } from "react-bootstrap";
-import { BiPen, BiPencil, BiPlusCircle, BiPrinter } from "react-icons/bi";
+import { Button, Col, Modal, Row, Table } from "react-bootstrap";
+import { BiPencil, BiPlusCircle, BiPrinter } from "react-icons/bi";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
