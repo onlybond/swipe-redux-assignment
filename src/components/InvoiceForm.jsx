@@ -110,9 +110,6 @@ const InvoiceForm = ({ edit, copy }) => {
       return { ...prevState, items: afterDelete };
     });
   };
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
   const handleCalculateTotal = () => {
     const { items, taxRate, discountRate } = state;
     let subTotal = 0;
